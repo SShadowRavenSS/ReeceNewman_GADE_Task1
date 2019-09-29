@@ -120,7 +120,7 @@ namespace ReeceNewman_19011948_GADE1B_POE
             {
                 MeleeUnit u = (MeleeUnit)unit;
 
-                if(u.death() == false)
+                if(u.IsDead == false)
                 {
                     MapDisplay[u.YPos, u.XPos] = u.Symbol;
                 }
@@ -129,94 +129,17 @@ namespace ReeceNewman_19011948_GADE1B_POE
             }
             else if(unitType == "RangedUnit")
             {
-                RangedUnit u = (RangedUnit)unit;
+                RangedUnit r = (RangedUnit)unit;
 
-                if(u.death() == false)
+                if(r.IsDead == false)
                 {
-                    MapDisplay[u.YPos, u.XPos] = u.Symbol;
+                    MapDisplay[r.YPos, r.XPos] = r.Symbol;
                 }
                 
             }
    
         }
 
-        public void positionChange(string direction, Unit unit)
-        {
-            string unitType = unit.GetType().ToString();
-            string[] unitArr = unitType.Split('.');
-            unitType = unitArr[unitArr.Length - 1];
-
-            if(unitType == "MeleeUnit")
-            {
-                MeleeUnit u = (MeleeUnit)unit;
-
-                if (u.death() == false)
-                {
-                    
-                    if (direction == "Up")
-                    {
-                        MapDisplay[u.XPos, u.YPos] = u.Symbol;
-                        MapDisplay[u.XPos, u.YPos + 1] = '.';
-                    }
-                    else if (direction == "Down")
-                    {
-                        MapDisplay[u.XPos, u.YPos] = u.Symbol;
-                        MapDisplay[u.XPos, u.YPos - 1] = '.';
-                    }
-                    else if (direction == "Left")
-                    {
-                        MapDisplay[u.XPos, u.YPos] = u.Symbol;
-                        MapDisplay[u.XPos + 1, u.YPos] = '.';
-                    }
-                    else if (direction == "Right")
-                    {
-                        MapDisplay[u.XPos, u.YPos] = u.Symbol;
-                        MapDisplay[u.XPos - 1, u.YPos] = '.';
-                    }
-                }
-                else
-                {
-                    MapDisplay[u.XPos, u.YPos] = 'D';
-                }
-
-                
-
-            }
-            else
-            {
-                RangedUnit r = (RangedUnit)unit;
-                
-                if (r.death() == false)
-                {
-                    Console.WriteLine("lol1");
-                    if (direction == "Up")
-                    {
-                        MapDisplay[r.XPos, r.YPos] = r.Symbol;
-                        MapDisplay[r.XPos, r.YPos + 1] = '.';
-                    }
-                    else if (direction == "Down")
-                    {
-                        MapDisplay[r.XPos, r.YPos] = r.Symbol;
-                        MapDisplay[r.XPos, r.YPos - 1] = '.';
-                    }
-                    else if (direction == "Left")
-                    {
-                        MapDisplay[r.XPos, r.YPos] = r.Symbol;
-                        MapDisplay[r.XPos + 1, r.YPos] = '.';
-                    }
-                    else if (direction == "Right")
-                    {
-                        MapDisplay[r.XPos, r.YPos] = r.Symbol;
-                        MapDisplay[r.XPos - 1, r.YPos] = '.';
-                    }
-                }
-                else
-                {
-                    MapDisplay[r.XPos, r.YPos] = 'D';
-                }
-                
-            }
-
-        }
+       
     }
 }

@@ -8,3 +8,13 @@ C:\Users\Reece Newman\Desktop\Vega\Game Development\Semester 2\POE\ReeceNewman_1
 C:\Users\Reece Newman\Desktop\Vega\Game Development\Semester 2\POE\ReeceNewman_19011948_GADE1B_POE\ReeceNewman_19011948_GADE1B_POE\obj\Debug\ReeceNewman_19011948_GADE1B_POE.csproj.CoreCompileInputs.cache
 C:\Users\Reece Newman\Desktop\Vega\Game Development\Semester 2\POE\ReeceNewman_19011948_GADE1B_POE\ReeceNewman_19011948_GADE1B_POE\obj\Debug\ReeceNewman_19011948_GADE1B_POE.exe
 C:\Users\Reece Newman\Desktop\Vega\Game Development\Semester 2\POE\ReeceNewman_19011948_GADE1B_POE\ReeceNewman_19011948_GADE1B_POE\obj\Debug\ReeceNewman_19011948_GADE1B_POE.pdb
+E:\Work\Vega\Game Development\Semester 2\POE\repos\Task1\ReeceNewman_GADE_Task1\ReeceNewman_19011948_GADE1B_POE\ReeceNewman_19011948_GADE1B_POE\bin\Debug\ReeceNewman_19011948_GADE1B_POE.exe.config
+E:\Work\Vega\Game Development\Semester 2\POE\repos\Task1\ReeceNewman_GADE_Task1\ReeceNewman_19011948_GADE1B_POE\ReeceNewman_19011948_GADE1B_POE\bin\Debug\ReeceNewman_19011948_GADE1B_POE.exe
+E:\Work\Vega\Game Development\Semester 2\POE\repos\Task1\ReeceNewman_GADE_Task1\ReeceNewman_19011948_GADE1B_POE\ReeceNewman_19011948_GADE1B_POE\bin\Debug\ReeceNewman_19011948_GADE1B_POE.pdb
+E:\Work\Vega\Game Development\Semester 2\POE\repos\Task1\ReeceNewman_GADE_Task1\ReeceNewman_19011948_GADE1B_POE\ReeceNewman_19011948_GADE1B_POE\obj\Debug\ReeceNewman_19011948_GADE1B_POE.csprojAssemblyReference.cache
+E:\Work\Vega\Game Development\Semester 2\POE\repos\Task1\ReeceNewman_GADE_Task1\ReeceNewman_19011948_GADE1B_POE\ReeceNewman_19011948_GADE1B_POE\obj\Debug\ReeceNewman_19011948_GADE1B_POE.frmBattleSim.resources
+E:\Work\Vega\Game Development\Semester 2\POE\repos\Task1\ReeceNewman_GADE_Task1\ReeceNewman_19011948_GADE1B_POE\ReeceNewman_19011948_GADE1B_POE\obj\Debug\ReeceNewman_19011948_GADE1B_POE.Properties.Resources.resources
+E:\Work\Vega\Game Development\Semester 2\POE\repos\Task1\ReeceNewman_GADE_Task1\ReeceNewman_19011948_GADE1B_POE\ReeceNewman_19011948_GADE1B_POE\obj\Debug\ReeceNewman_19011948_GADE1B_POE.csproj.GenerateResource.cache
+E:\Work\Vega\Game Development\Semester 2\POE\repos\Task1\ReeceNewman_GADE_Task1\ReeceNewman_19011948_GADE1B_POE\ReeceNewman_19011948_GADE1B_POE\obj\Debug\ReeceNewman_19011948_GADE1B_POE.csproj.CoreCompileInputs.cache
+E:\Work\Vega\Game Development\Semester 2\POE\repos\Task1\ReeceNewman_GADE_Task1\ReeceNewman_19011948_GADE1B_POE\ReeceNewman_19011948_GADE1B_POE\obj\Debug\ReeceNewman_19011948_GADE1B_POE.exe
+E:\Work\Vega\Game Development\Semester 2\POE\repos\Task1\ReeceNewman_GADE_Task1\ReeceNewman_19011948_GADE1B_POE\ReeceNewman_19011948_GADE1B_POE\obj\Debug\ReeceNewman_19011948_GADE1B_POE.pdb

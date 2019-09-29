@@ -8,190 +8,72 @@ namespace ReeceNewman_19011948_GADE1B_POE
 {
     class GameEngine
     {
-        private int roundCounter;
         private Map map;
-
-        public int RoundCounter { get => roundCounter; }
+        int counter = 0;
         public Map Map { get => map; }
-        
+
 
         public GameEngine(int numberOfUnits)
         {
+
             map = new Map(numberOfUnits, 20, 20);
             map.newBattlefield();
-            
-        } 
 
-        public string gameLogic(Unit[] unit)
+        }
+
+        public void gameLogic(Unit[] unit)
         {
-            string stats = "";
+
+            bool resetCounter = false;
 
             for (int i = 0; i < unit.Length; i++)
             {
-                string unitType = unit[i].GetType().ToString();
-                
-                string[] unitArr = unitType.Split('.');
-                unitType = unitArr[unitArr.Length - 1];
-                string directionMoved = "";
+                unit[i].death(); //Check for death and set relevant variable
+                unit[i].IsAttacking = false;
 
-                if (unitType == "MeleeUnit")
+                if (unit[i].IsDead == false) //If unit is not dead
                 {
-                    MeleeUnit u = (MeleeUnit)unit[i]; //explicit cast a temp unit of type Melee to use 
+                    Unit closest = unit[i].closestUnit(unit); //Determines the closest unit to this unit and stores that unit in 'closest'
 
-                    if (u.death() == false)
+                    if (unit[i].attackingRange(closest) == false || unit[i].Health / unit[i].MaxHealth * 100 < 25) //If the unit is below 25% hp or is not in range of the closest enemy 
                     {
-                        Unit closest = u.closestUnit(unit); //Determines the closest unit to u
+                        unit[i].movement(closest, map.MapSizeX, map.MapSizeY); //Move
 
-                        string typeUnit = closest.GetType().ToString();
-                        string[] arrUnit = typeUnit.Split('.');
-                        typeUnit = arrUnit[unitArr.Length - 1];
-
-                        if (typeUnit == "MeleeUnit")
-                        {
-                            MeleeUnit mU = (MeleeUnit)closest; //explicit cast a temp Melee unit of the closest unit 
-
-                            if (mU.death() == false)
-                            {
-
-                                if (u.attackingRange(mU) == false && u.IsAttacking == false || u.Health / u.MaxHealth * 100 < 25)
-                                {
-                                    directionMoved = u.movement(mU);
-                                    //map.positionChange(directionMoved, u);
-                                    map.populateMap();
-                                }
-                                else if(u.Faction != mU.Faction)
-                                {
-                                    u.combat(mU);
-                                    map.populateMap();
-                                }
-                            }
-                            else
-                            {
-                                u.IsAttacking = false;
-                            }
-
-                        }
-                        else
-                        {
-                            RangedUnit rU = (RangedUnit)closest;
-                            if (rU.death() == false)
-                            {
-
-                                if (u.attackingRange(rU) == false && u.IsAttacking == false || u.Health / u.MaxHealth * 100 < 25)
-                                {
-                                    directionMoved = u.movement(rU);
-                                    //map.positionChange(directionMoved, u);
-                                    map.populateMap();
-                                }
-                                else if (u.Faction != rU.Faction)
-                                {
-                                    u.combat(rU);
-                                    map.populateMap();
-                                }
-                            }
-                            else
-                            {
-                                u.IsAttacking = false;
-                            }
-                        }
-                        
+                        map.populateMap(); //Refresh Map
                     }
-                }
-                else
-                {
-                    RangedUnit r = (RangedUnit)unit[i];
-
-                    if (r.death() == false)
+                    else if (unit[i].Faction != closest.Faction) //If the unit is not part of the same team
                     {
-
-
-
-                        Unit closest = r.closestUnit(unit);
-
-                        string typeUnit = closest.GetType().ToString();
-                        string[] arrUnit = typeUnit.Split('.');
-                        typeUnit = arrUnit[unitArr.Length - 1];
-
-                        if (typeUnit == "MeleeUnit")
-                        {
-                            MeleeUnit mU = (MeleeUnit)closest;
-
-                            if(mU.death() == false)
-                            {
-                                if (r.attackingRange(mU) == false && r.IsAttacking == false || r.Health / r.MaxHealth * 100 < 25)
-                                {
-                                    directionMoved = r.movement(mU);
-                                    //map.positionChange(directionMoved, r);
-                                    map.populateMap();
-                                }
-                                else if (r.Faction != mU.Faction)
-                                {
-                                    r.combat(mU);
-                                    map.populateMap();
-                                }
-
-                            }
-                            else
-                            {
-                                r.IsAttacking = false; 
-                            }
-
-
-                        }
-                        else
-                        {
-                            RangedUnit rU = (RangedUnit)closest;
-                            
-                            if(rU.death() == false)
-                            {
-                                if (r.attackingRange(rU) == false && r.IsAttacking == false || r.Health / r.MaxHealth * 100 < 25)
-                                {
-                                    directionMoved = r.movement(rU);
-                                    //map.positionChange(directionMoved, r);
-                                    map.populateMap();
-                                }
-                                else if (r.Faction != rU.Faction)
-                                {
-                                    r.combat(rU);
-                                    map.populateMap();
-                                }
-                            }
-                            else
-                            {
-                                r.IsAttacking = false;
-                            }
-
-                                
-                            
-                        }
-                        
+                        unit[i].combat(closest); //Do combat
+                        map.populateMap(); //Refreh map
                     }
+
                 }
-                
+
+
             }
 
 
-            for (int k = 0; k < unit.Length; k++)
+            if (resetCounter == true)
             {
-                string unitType = unit[k].GetType().ToString();
-
-                string[] unitArr = unitType.Split('.');
-                unitType = unitArr[unitArr.Length - 1];
-
-                if(unitType == "MeleeUnit")
-                {
-                    MeleeUnit u = (MeleeUnit)unit[k];
-                    stats += u.ToString();
-                }
-                else
-                {
-                    RangedUnit r = (RangedUnit)unit[k];
-                    stats += r.ToString();
-                }
+                resetCounter = false;
+                counter = 0;
             }
-            
+            else
+            {
+                ++counter;
 
-            this.roundCounter++;
+            }
+
+        }
+
+        public string getStats(Unit[] unit)
+        {
+            string stats = "";
+            for (int i = 0; i < unit.Length; i++)
+            {
+                stats += unit[i].ToString();
+            }
+ 
             return stats;
         }
     }

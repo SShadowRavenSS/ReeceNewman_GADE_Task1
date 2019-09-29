@@ -23,10 +23,11 @@ namespace ReeceNewman_19011948_GADE1B_POE
         private void frmBattleSim_Load(object sender, EventArgs e)
         {
 
-            gameEngine = new GameEngine(6);
+            gameEngine = new GameEngine(5);
             lblMap.Text = gameEngine.Map.convertMap();
-            rtxUnitInfo.Text = gameEngine.gameLogic(gameEngine.Map.Units);
-            
+
+            rtxUnitInfo.Text = gameEngine.getStats(gameEngine.Map.Units);
+
 
         }
 
@@ -41,10 +42,11 @@ namespace ReeceNewman_19011948_GADE1B_POE
 
         private void playGame(object sender, EventArgs e)
         {
-            rtxUnitInfo.Text = gameEngine.gameLogic(gameEngine.Map.Units);
+            gameEngine.gameLogic(gameEngine.Map.Units);
             lblMap.Text = gameEngine.Map.convertMap();
             lblTimer.Text = Convert.ToString(Convert.ToInt32(lblTimer.Text) + 1);
-            
+            rtxUnitInfo.Text = gameEngine.getStats(gameEngine.Map.Units);
+
         }
 
         private void btnPause_Click(object sender, EventArgs e)
